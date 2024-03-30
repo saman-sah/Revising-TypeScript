@@ -3,6 +3,8 @@ console.log('username: ', username);
 
 let misedDtat: (string | number | boolean)[] = ['saman', 1991, true]
 
+let re: RegExp = /\w+/g
+
 type both = string | number
 
 let helloWorld = <string | number>"Helloworld"
@@ -78,3 +80,45 @@ let objNameArrayNew: ObjectWithNameArrayNew = [
     family: 'sahraei'
   }
 ]
+
+
+interface Point {
+  x: number,
+  y: number
+}
+const logPoint = (p: Point): void => {
+  console.log('p.x, p.y', p.x, p.y);
+}
+const point = { x: 12, y: 25, z: 12 }
+logPoint(point)
+
+const point2: Point = {
+  x: 12,
+  y: 26,
+  // z:12 error
+}
+
+class VirtualPoint {
+  x: number;
+  y: number;
+
+  constructor(x: number, y: number) {
+    this.x = x;
+    this.y = y
+  }
+}
+
+const newVPoint = new VirtualPoint(13, 56)
+logPoint(newVPoint)
+
+// tuple
+let ourTuple: [number, boolean, string]
+ourTuple = [489, true, 'hello']
+console.log('ourTuple', ourTuple);
+
+ourTuple.push('new string')
+console.log('ourTuple + push', ourTuple);
+
+let ourReadonlyTuple: readonly [number, boolean, string] = [1, false, 'world']
+console.log('ourReadonlyTuple', ourReadonlyTuple);
+// ourReadonlyTuple.push('new string') readonly -errorrrr

@@ -122,3 +122,78 @@ console.log('ourTuple + push', ourTuple);
 let ourReadonlyTuple: readonly [number, boolean, string] = [1, false, 'world']
 console.log('ourReadonlyTuple', ourReadonlyTuple);
 // ourReadonlyTuple.push('new string') readonly -errorrrr
+
+type stringOrNumber = string | number
+
+type Guitarist = {
+  name?: string,
+  active: boolean,
+  albums: String | Number
+}
+
+interface Guitarist2 {
+  name?: string,
+  active: boolean,
+  albums: stringOrNumber
+}
+
+type userId = stringOrNumber
+
+let fname: 'Saman'
+// fname = 'sadra' error
+
+// literal type
+let firstName: 'Saman' | 'Sadra'
+// username just could set saman or sadra
+
+
+// functions
+const add = (m: number, n: number):
+  number => {
+  return m + n
+}
+
+const logMsg = (message: any):
+  void => {
+  console.log(message);
+}
+logMsg('string');
+logMsg(add(2, 3));
+// logMsg(add(2, '3')); TS - error
+
+const subtract = (x: number, y: number):
+  number => {
+  return x - y
+}
+
+const multiply = (z: number, a: number):
+  number => {
+  return z * a
+}
+
+type mathFunction = (g: number, l: number) => number
+// equal to 
+interface mathFunction2 {
+  (g: number, l: number): number
+}
+
+const divide: mathFunction = (k, p) => {
+  return k / p
+}
+
+type MathFunc = (...args: number[]) => number
+interface MathFunc2 {
+  (...args: number[]): number
+}
+
+const addAll: MathFunc = (...args) => {
+  return args.reduce((acc, val) => acc + val, 0);
+}
+
+console.log('Add All', addAll(1, 2, 3, 4));
+
+
+const optional = (a: number, b: number, c?: number): number => {
+  if (typeof c !== 'undefined') return a + b + c
+  return a + b
+}

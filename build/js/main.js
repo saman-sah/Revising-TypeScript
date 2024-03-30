@@ -77,4 +77,36 @@ ourTuple.push('new string');
 console.log('ourTuple + push', ourTuple);
 let ourReadonlyTuple = [1, false, 'world'];
 console.log('ourReadonlyTuple', ourReadonlyTuple);
-// ourReadonlyTuple.push('new string') readonly -errorrrr
+let fname;
+// fname = 'sadra' error
+// literal type
+let firstName;
+// username just could set saman or sadra
+// functions
+const add = (m, n) => {
+    return m + n;
+};
+const logMsg = (message) => {
+    console.log(message);
+};
+logMsg('string');
+logMsg(add(2, 3));
+// logMsg(add(2, '3')); TS - error
+const subtract = (x, y) => {
+    return x - y;
+};
+const multiply = (z, a) => {
+    return z * a;
+};
+const divide = (k, p) => {
+    return k / p;
+};
+const addAll = (...args) => {
+    return args.reduce((acc, val) => acc + val, 0);
+};
+console.log('Add All', addAll(1, 2, 3, 4));
+const optional = (a, b, c) => {
+    if (typeof c !== 'undefined')
+        return a + b + c;
+    return a + b;
+};

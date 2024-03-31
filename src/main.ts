@@ -181,11 +181,12 @@ const divide: mathFunction = (k, p) => {
   return k / p
 }
 
+
+// rest parameter
 type MathFunc = (...args: number[]) => number
 interface MathFunc2 {
   (...args: number[]): number
 }
-
 const addAll: MathFunc = (...args) => {
   return args.reduce((acc, val) => acc + val, 0);
 }
@@ -196,4 +197,19 @@ console.log('Add All', addAll(1, 2, 3, 4));
 const optional = (a: number, b: number, c?: number): number => {
   if (typeof c !== 'undefined') return a + b + c
   return a + b
+}
+
+// Never Type
+const createError = (errMsg: string): never => {
+  throw new Error(errMsg)
+}
+const infinite = (): never => {
+  let i = 1
+  while (true) {
+    i++
+  }
+}
+
+const isNumber = (value: any): boolean => {
+  return typeof value === 'number' ? true : false
 }

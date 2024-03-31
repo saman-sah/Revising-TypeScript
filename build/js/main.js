@@ -110,3 +110,16 @@ const optional = (a, b, c) => {
         return a + b + c;
     return a + b;
 };
+// Never Type
+const createError = (errMsg) => {
+    throw new Error(errMsg);
+};
+const infinite = () => {
+    let i = 1;
+    while (true) {
+        i++;
+    }
+};
+const isNumber = (value) => {
+    return typeof value === 'number' ? true : false;
+};

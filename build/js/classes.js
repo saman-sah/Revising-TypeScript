@@ -38,13 +38,13 @@ class Pianist {
     }
 }
 class Peeps {
-    static getCount() {
-        return Peeps.count;
-    }
     constructor(name) {
         this.name = name;
         this.name = name;
         this.id = ++Peeps.count;
+    }
+    static getCount() {
+        return Peeps.count;
     }
 }
 Peeps.count = 0;

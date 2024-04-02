@@ -152,3 +152,21 @@ const printDataTwo = <X, Y>(firstArg: X, secondArg: Y) => {
 }
 printDataTwo("Hello", "World");
 printDataTwo(123, ["Hi", 123]);
+
+
+class Queue<T> {
+  private data: T[] = [];
+
+  push(item: T) {
+    this.data.push(item);
+  }
+
+  pop(): T | undefined {
+    return this.data.shift();
+  }
+}
+
+let q = new Queue<number>();
+q.push(1);
+// q.push("2"); // Argument of type '"2"' is not assignable to parameter of type 'number'
+q.push(3);

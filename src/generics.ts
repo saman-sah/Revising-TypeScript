@@ -1,3 +1,4 @@
+
 const echo = <T>(args: T): T => args
 
 const isObj = <T>(args: T): boolean => {
@@ -60,3 +61,94 @@ const proccessUser = <T extends HasId>(user: T): T => {
 
 console.log(proccessUser({ id: 1, name: 'Saman' }));
 // console.log(proccessUser({ name: 'Saman'})); // error TS - id is required for interface
+
+
+
+function getFirstNumber(array: number[]) {
+  return array[0]
+}
+const numbers = [1, 2, 3]
+const firstNum = getFirstNumber(numbers)
+console.log('firstNum', firstNum);
+
+function getFistStr(array: string[]) {
+  return array[0]
+}
+const strs = ['a', 'b', 'c']
+const firstStr = getFistStr(strs)
+console.log('firstStr', firstStr);
+
+function getFistElement<ElementType>(array: ElementType[]) {
+  return array[0]
+}
+const elementsStr = ['a', 'b', 'c']
+const elementsNum = [1, 2, 3]
+const firstElementStr = getFistElement(elementsStr)
+const firstElementNum = getFistElement(elementsNum)
+console.log('firstElementStr', firstElementStr);
+console.log('firstElementNum', firstElementNum);
+
+const input = document.querySelector(".input")
+// input.value input type is element and doesnt have value
+
+const inputVal = document.querySelector<HTMLInputElement>(".input")
+inputVal?.value
+
+
+
+type ApiResponse = {
+  data: any,
+  isError: boolean
+}
+const response: ApiResponse = {
+  data: {
+    name: 'saman',
+    age: 32
+  },
+  isError: false
+}
+console.log('response', response);
+
+
+type ApiRes<Data> = {
+  data: Data,
+  isError: boolean
+}
+const res: ApiRes<{ name: string, age: number }> = {
+  data: {
+    name: 'saman',
+    age: 32,
+  },
+  isError: false
+}
+console.log('res', res);
+
+
+type UserResponse = ApiRes<{ name: string, age: number }>
+
+const resUser: UserResponse = {
+  data: {
+    name: 'saman',
+    age: 32
+  },
+  isError: false
+}
+console.log('resUser', resUser);
+
+
+const printData = <T>(data: T) => {
+  console.log('data', data);
+}
+printData(2);
+printData("hello");
+printData(true);
+printData([1, 2, 3, 4, 5, 6]);
+printData([1, 2, 3, "hi"]);
+printData({ name: "Ram", rollNo: 1 });
+
+const printDataTwo = <X, Y>(firstArg: X, secondArg: Y) => {
+  console.log('firstArg', firstArg);
+  console.log('secondArg', secondArg);
+}
+printDataTwo("Hello", "World");
+printDataTwo(123, ["Hi", 123]);

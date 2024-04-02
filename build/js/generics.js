@@ -45,3 +45,67 @@ const proccessUser = (user) => {
 };
 console.log(proccessUser({ id: 1, name: 'Saman' }));
 // console.log(proccessUser({ name: 'Saman'})); // error TS - id is required for interface
+function getFirstNumber(array) {
+    return array[0];
+}
+const numbers = [1, 2, 3];
+const firstNum = getFirstNumber(numbers);
+console.log('firstNum', firstNum);
+function getFistStr(array) {
+    return array[0];
+}
+const strs = ['a', 'b', 'c'];
+const firstStr = getFistStr(strs);
+console.log('firstStr', firstStr);
+function getFistElement(array) {
+    return array[0];
+}
+const elementsStr = ['a', 'b', 'c'];
+const elementsNum = [1, 2, 3];
+const firstElementStr = getFistElement(elementsStr);
+const firstElementNum = getFistElement(elementsNum);
+console.log('firstElementStr', firstElementStr);
+console.log('firstElementNum', firstElementNum);
+const input = document.querySelector(".input");
+// input.value input type is element and doesnt have value
+const inputVal = document.querySelector(".input");
+inputVal === null || inputVal === void 0 ? void 0 : inputVal.value;
+const response = {
+    data: {
+        name: 'saman',
+        age: 32
+    },
+    isError: false
+};
+console.log('response', response);
+const res = {
+    data: {
+        name: 'saman',
+        age: 32,
+    },
+    isError: false
+};
+console.log('res', res);
+const resUser = {
+    data: {
+        name: 'saman',
+        age: 32
+    },
+    isError: false
+};
+console.log('resUser', resUser);
+const printData = (data) => {
+    console.log('data', data);
+};
+printData(2);
+printData("hello");
+printData(true);
+printData([1, 2, 3, 4, 5, 6]);
+printData([1, 2, 3, "hi"]);
+printData({ name: "Ram", rollNo: 1 });
+const printDataTwo = (firstArg, secondArg) => {
+    console.log('firstArg', firstArg);
+    console.log('secondArg', secondArg);
+};
+printDataTwo("Hello", "World");
+printDataTwo(123, ["Hi", 123]);
